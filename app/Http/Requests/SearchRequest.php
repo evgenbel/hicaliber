@@ -23,7 +23,8 @@ class SearchRequest extends FormRequest
     {
         return [
             'name' => ['nullable','string', 'max:20'],
-            'price' => ['nullable', 'integer', 'min:0', 'max:1000000'],
+            'price' => ['nullable', 'array'],
+            'price.*' => ['nullable', 'integer', 'min:0', 'max:1000000'],
             'bedrooms' => ['nullable', 'integer', 'min:3', 'max:5'],
             'bathrooms' => ['nullable', 'integer', 'min:2', 'max:3'],
             'storeys' => ['nullable', 'integer', 'min:1', 'max:2'],

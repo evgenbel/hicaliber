@@ -25,8 +25,11 @@ class SearchRepository
         if (!empty($filter['name'])){
             $query->where('name', 'like', '%'.$filter['name'].'%');
         }
-        if (!empty($filter['price'])){
-            $query->where('price', $filter['price']);
+        if (!empty($filter['price'][0])){
+            $query->where('price','>=', $filter['price'][0]);
+        }
+        if (!empty($filter['price'][1])){
+            $query->where('price','<=', $filter['price'][1]);
         }
         if (!empty($filter['bedrooms'])){
             $query->where('bedrooms', $filter['bedrooms']);
